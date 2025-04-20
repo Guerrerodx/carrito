@@ -32,7 +32,7 @@ Aplicación web de comercio electrónico desarrollada como SPA con autenticació
 ## 📦 Instalación local
 
 ```bash
-git clone https://github.com/tuusuario/carrito-auth-app.git
-cd carrito-auth-app
+git clone https://https://github.com/Guerrerodx/carrito
+cd carrito
 npm install
 npm start

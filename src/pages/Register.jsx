@@ -1,14 +1,19 @@
 import { useState } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../services/firebase";
 import { useDispatch } from "react-redux";
 import { login } from "../store/userSlice";
 import { useNavigate } from "react-router-dom";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../services/firebase";
 
 export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [lastname, setLastname] = useState("");
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -16,17 +21,34 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
-
+    setSuccess(false);
+  
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
-
+  
+      await updateProfile(user, {
+        displayName: `${name} ${lastname}`,
+      });
+  
+      console.log("Usuario autenticado, intentando guardar en Firestore");
+  
+      await setDoc(doc(db, "users", user.uid), {
+        name,
+        lastname,
+        email: user.email,
+      });
+  
+      console.log("Documento guardado correctamente");
+  
       dispatch(login({ uid: user.uid, email: user.email }));
-      navigate("/");
+      navigate("/login");
     } catch (err) {
-      setError(err.message);
+      console.error("Error en el registro:", err);
+      setError("Error al registrar usuario. Intenta nuevamente.");
     }
   };
+  
 
   return (
     <div style={styles.container}>
@@ -48,8 +70,25 @@ export default function Register() {
           required
           style={styles.input}
         />
+        <input
+          type="text"
+          placeholder="Nombre"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+          style={styles.input}
+        />
+        <input
+          type="text"
+          placeholder="Apellido"
+          value={lastname}
+          onChange={(e) => setLastname(e.target.value)}
+          required
+          style={styles.input}
+        />
         <button type="submit" style={styles.button}>Crear cuenta</button>
         {error && <p style={styles.error}>{error}</p>}
+        {success && <p style={styles.success}>¡Cuenta creada exitosamente! Redirigiendo...</p>}
       </form>
     </div>
   );
@@ -80,5 +119,8 @@ const styles = {
   },
   error: {
     color: "red",
+  },
+  success: {
+    color: "green",
   },
 };
