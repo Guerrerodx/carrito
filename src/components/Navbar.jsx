@@ -14,9 +14,10 @@ export default function Navbar() {
       <div style={styles.links}>
         <Link style={styles.link} to="/">Inicio</Link>
         <Link style={styles.link} to="/cart">
-          <FaShoppingCart /> ({totalItems})
+          <FaShoppingCart  style={styles.icon}/> ({totalItems})
         </Link>
-        <NavbarDropdown user={user} />
+        <NavbarDropdown user={user} iconStyle={styles.icon} />
+
       </div>
     </nav>
   );
@@ -43,4 +44,11 @@ const styles = {
     color: "white",
     textDecoration: "none",
   },
+  icon: {
+    fontSize: "18px",
+    verticalAlign: "middle",
+    marginLeft: "10px",
+    cursor: "pointer",
+  }
+  
 };

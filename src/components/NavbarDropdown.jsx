@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../store/userSlice";
 import { useTheme } from "../context/ThemeContext";
+import { FaUser } from "react-icons/fa";
+
 
 export default function NavbarDropdown() {
   const user = useSelector((state) => state.user.user);
@@ -32,12 +34,8 @@ export default function NavbarDropdown() {
 
   return (
     <div style={styles.container}>
-      <button
-        style={styles.iconButton}
-        onClick={() => setShowDropdown((prev) => !prev)}
-      >
-        👤
-      </button>
+      <FaUser style={styles.icon} onClick={() => setShowDropdown((prev) => !prev)}>
+      </FaUser>
 
       {showDropdown && (
         <div ref={dropdownRef} style={styles.dropdown}>
@@ -98,13 +96,6 @@ const styles = {
   container: {
     position: "relative",
   },
-  iconButton: {
-    background: "none",
-    border: "none",
-    color: "white",
-    fontSize: "20px",
-    cursor: "pointer",
-  },
   dropdown: {
     position: "absolute",
     top: "100%",
@@ -134,4 +125,10 @@ const styles = {
     marginBottom: "5px",
     borderBottom: "1px solid #666",
   },
+  icon: {
+    fontSize: "18px",
+    verticalAlign: "middle",
+    marginLeft: "10px",
+    cursor: "pointer",
+  }
 };
