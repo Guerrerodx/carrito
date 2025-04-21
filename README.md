@@ -1,7 +1,7 @@
 # 🛒 Carrito App
 
-Aplicación web de comercio electrónico desarrollada como SPA con autenticación, consumo de API RESTful y manejo global de estado. Este proyecto cumple con todos los requisitos técnicos exigidos en el encargo académico.
-
+Aplicación web de comercio electrónico desarrollada como SPA con autenticación, consumo de API RESTful y manejo global de estado.
+(https://carrito-auth.web.app/)
 ---
 
 ## 🚀 Tecnologías utilizadas
@@ -32,7 +32,7 @@ Aplicación web de comercio electrónico desarrollada como SPA con autenticació
 ## 📦 Instalación local
 
 ```bash
-git clone https://https://github.com/Guerrerodx/carrito
+git clone https://github.com/Guerrerodx/carrito
 cd carrito
 npm install
 npm start
