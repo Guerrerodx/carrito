@@ -1,4 +1,4 @@
-# 🛒 Carrito Auth App
+# 🛒 Carrito App
 
 Aplicación web de comercio electrónico desarrollada como SPA con autenticación, consumo de API RESTful y manejo global de estado. Este proyecto cumple con todos los requisitos técnicos exigidos en el encargo académico.
 
@@ -6,7 +6,7 @@ Aplicación web de comercio electrónico desarrollada como SPA con autenticació
 
 ## 🚀 Tecnologías utilizadas
 
-- ⚛️ React 18 (SPA)
+- ⚛️ React 20 (SPA)
 - 🔐 Firebase Authentication
 - 🔄 Redux Toolkit (manejo de estado global)
 - 🌐 React Router DOM (rutas dinámicas)
@@ -36,3 +36,13 @@ git clone https://https://github.com/Guerrerodx/carrito
 cd carrito
 npm install
 npm start
+```
+
+## 🧪 Ejecutar pruebas
+
+Este proyecto utiliza **Jest** y **React Testing Library** para realizar pruebas unitarias.  
+Para ejecutarlas localmente, sigue estos pasos:
+
+```bash
+# Ejecuta todas las pruebas
+npm test

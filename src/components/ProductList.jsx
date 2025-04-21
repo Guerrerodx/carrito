@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 
-const PRODUCTS_PER_PAGE = 6;
+const PRODUCTS_PER_PAGE = 9;
 
 export default function ProductList() {
   const [products, setProducts] = useState([]);
