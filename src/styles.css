@@ -1,0 +1,101 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+header {
+  background: #333;
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+}
+
+footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 20px;
+}
+
+.App {
+  text-align: center;
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px;
+  width: 200px;
+  display: inline-block;
+  text-align: left;
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+  }
+
+  .product-card {
+    width: 100%;
+    display: block;
+    margin: 10px auto;
+  }
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+body.dark {
+  background-color: #121212;
+  color: #f4f4f4;
+}
+
+body.dark header,
+body.dark footer {
+  background-color: #222;
+  color: #f4f4f4;
+}
+
+body.dark .product-card {
+  border-color: #555;
+}

@@ -1,3 +1,4 @@
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -6,7 +7,8 @@ import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import Profile from "./pages/Profile";
 import Navbar from "./components/Navbar";
-import './layout.css';
+import './styles.css';
+
 
 function App() {
   return (

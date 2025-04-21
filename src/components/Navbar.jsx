@@ -1,6 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../store/userSlice";
+import { useTheme } from "../ThemeContext";
+
 
 export default function Navbar() {
   const user = useSelector((state) => state.user.user);
@@ -13,13 +15,16 @@ export default function Navbar() {
     dispatch(logout());
     navigate("/login");
   };
-
+  const { darkMode, setDarkMode } = useTheme();
   return (
     <nav style={styles.nav}>
-      <h2 style={styles.title}>🛒 Carrito App</h2>
+      <h2 style={styles.title}>Carrito - Frontend</h2>
       <div style={styles.links}>
         <Link style={styles.link} to="/">Inicio</Link>
-        <Link style={styles.link} to="/cart">Carrito ({totalItems})</Link>
+        <Link style={styles.link} to="/cart">🛒({totalItems})</Link>
+        <button onClick={() => setDarkMode(!darkMode)}>
+          {darkMode ? "☀️ Claro" : "🌙 Oscuro"}
+        </button>
         {user ? (
           <>
             <Link style={styles.link} to="/profile">Perfil</Link>
