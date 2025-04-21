@@ -13,8 +13,8 @@ export default function Profile() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!user) return;
-
+    if (!user?.uid) return;
+  
     const fetchProfile = async () => {
       const userRef = doc(db, "users", user.uid);
       const userSnap = await getDoc(userRef);
@@ -25,9 +25,10 @@ export default function Profile() {
       }
       setLoading(false);
     };
-
+  
     fetchProfile();
-  }, [user]);
+  }, [user?.uid]);
+  
 
   const handleSave = async () => {
     try {
@@ -46,7 +47,7 @@ export default function Profile() {
   if (loading) return <p>Cargando perfil...</p>;
 
   return (
-    <div style={{ padding: 20 }}>
+    <div style={{ maxWidth: "600px", margin: "40px auto", padding: "20px" }}>
       <h2>Mi Perfil</h2>
       <p><strong>Email:</strong> {user.email}</p>
       <div>

@@ -85,9 +85,17 @@ input[type="password"] {
   box-sizing: border-box;
 }
 
-body.dark {
+body.dark-mode {
   background-color: #121212;
-  color: #f4f4f4;
+  color: #fff;
+}
+
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode button {
+  background-color: #333;
+  color: #fff;
+  border-color: #555;
 }
 
 body.dark header,
@@ -98,4 +106,20 @@ body.dark footer {
 
 body.dark .product-card {
   border-color: #555;
+}
+:root {
+  --dropdown-bg: #f4f4f4;
+  --dropdown-text: #222;
+  --dropdown-divider: #ccc;
+}
+
+body.dark {
+  background-color: #111;
+  color: white;
+}
+
+body.dark input {
+  background-color: #333;
+  color: white;
+  border: 1px solid #555;
 }
