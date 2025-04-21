@@ -29,6 +29,7 @@ export default function NavbarDropdown() {
   }, []);
 
   const handleLogout = () => {
+    alert("Se ha cerrado su sesion exitosamente");
     dispatch(logout());
   };
 
